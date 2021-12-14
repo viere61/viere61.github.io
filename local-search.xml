@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>解释激活函数之于神经网络</title>
+    <link href="/2021/12/14/%E8%A7%A3%E9%87%8A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E4%B9%8B%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <url>/2021/12/14/%E8%A7%A3%E9%87%8A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E4%B9%8B%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    
+    <content type="html"><![CDATA[<h2 id="激活函数是什么"><a href="#激活函数是什么" class="headerlink" title="激活函数是什么"></a>激活函数是什么</h2><p>所谓激活函数（Activation Function），就是在人工神经网络的神经元上运行的函数，负责将神经元的输入映射到输出端。激活函数对于人工神经网络模型去学习、理解非常复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。如图，在神经元中，输入（inputs）通过加权，求和后，还被作用在一个函数上，这个函数就是激活函数。</p><p><img src="/img/v2-b50b34f6c48a49968de2d7b6de79b7e6_b.png"></p><h2 id="为什么用激活函数"><a href="#为什么用激活函数" class="headerlink" title="为什么用激活函数"></a>为什么用激活函数</h2><p>激活函数给神经元引入了非线性因素，使得神经网络可以任意逼近任何非线性函数，应用到众多的非线性模型中，解决非线性问题。</p><p>无激活函数的二分问题增加再多感知机（Perceptron）都只是矩阵相乘。因为其本质是在上层输入线型函数，输出线性组合，无非线性因素。将出现的问题如下图。</p><p><img src="/img/%E7%BA%BF%E6%80%A7%E4%B8%8D%E5%8F%AF%E5%88%86.png"></p><p>加入阶跃函数后。阶跃函数即小于0不激活分到0，大于0被激活分到1（100%）。显然阶跃函数不是一个最好的选择，我们希望它可以是0%到100%里的任意值。值越大，激活程度越高。对于分类，也意味着它属于这一类的概率越大。</p><p><img src="/img/%E5%8A%A0%E5%85%A5%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png"></p><p>加入Sigmoid函数后。加入非线性因素。</p><p><img src="/img/%E5%8A%A0%E5%85%A5Sigmoid%E5%87%BD%E6%95%B0.png"></p><p>其他常用激活函数Tanh，ReLU，Leaky，ReLU，PReLU，ELU，Maxout。因为每个激活函数都要考虑输入输出以及数据变化所以要谨慎选择。本文因为本人能力有限，不会对它们的区别作出解释。</p><p><img src="/img/v2-17708ef17113fc120b045db3de3dbaac_b.jpg"></p><h2 id="利用GeoGebra模拟"><a href="#利用GeoGebra模拟" class="headerlink" title="利用GeoGebra模拟"></a>利用GeoGebra模拟</h2><p>无激活函数。</p><p><img src="/img/%E6%97%A0%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png"></p><p>加入阶跃函数。</p><p><img src="/img/%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png"></p><p>加入Sigmoid函数。</p><p><img src="/img/Sigmoid%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Deep Learning</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>test</title>
     <link href="/2021/12/13/test/"/>
     <url>/2021/12/13/test/</url>

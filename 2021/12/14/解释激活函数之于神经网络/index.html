@@ -16,20 +16,29 @@
   <meta name="description" content="from Earth">
   <meta name="author" content="Viere">
   <meta name="keywords" content="">
-  <meta name="description" content="testtesttesttesttesttest  hexo1 hexo2   test testtest">
+  <meta name="description" content="激活函数是什么所谓激活函数（Activation Function），就是在人工神经网络的神经元上运行的函数，负责将神经元的输入映射到输出端。激活函数对于人工神经网络模型去学习、理解非常复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。如图，在神经元中，输入（inputs）通过加权，求和后，还被作用在一个函数上，这个函数就是激活函数。  为什么用激活函数激活函数给神经元">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://example.com/2021/12/13/test/index.html">
+<meta property="og:title" content="解释激活函数之于神经网络">
+<meta property="og:url" content="http://example.com/2021/12/14/%E8%A7%A3%E9%87%8A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E4%B9%8B%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="testtesttesttesttesttest  hexo1 hexo2   test testtest">
+<meta property="og:description" content="激活函数是什么所谓激活函数（Activation Function），就是在人工神经网络的神经元上运行的函数，负责将神经元的输入映射到输出端。激活函数对于人工神经网络模型去学习、理解非常复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。如图，在神经元中，输入（inputs）通过加权，求和后，还被作用在一个函数上，这个函数就是激活函数。  为什么用激活函数激活函数给神经元">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-12-13T09:32:36.000Z">
-<meta property="article:modified_time" content="2021-12-13T09:40:02.875Z">
+<meta property="og:image" content="http://example.com/img/v2-b50b34f6c48a49968de2d7b6de79b7e6_b.png">
+<meta property="og:image" content="http://example.com/img/%E7%BA%BF%E6%80%A7%E4%B8%8D%E5%8F%AF%E5%88%86.png">
+<meta property="og:image" content="http://example.com/img/%E5%8A%A0%E5%85%A5%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png">
+<meta property="og:image" content="http://example.com/img/%E5%8A%A0%E5%85%A5Sigmoid%E5%87%BD%E6%95%B0.png">
+<meta property="og:image" content="http://example.com/img/v2-17708ef17113fc120b045db3de3dbaac_b.jpg">
+<meta property="og:image" content="http://example.com/img/%E6%97%A0%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png">
+<meta property="og:image" content="http://example.com/img/%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png">
+<meta property="og:image" content="http://example.com/img/Sigmoid%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png">
+<meta property="article:published_time" content="2021-12-14T11:38:53.000Z">
+<meta property="article:modified_time" content="2021-12-14T12:33:10.603Z">
 <meta property="article:author" content="Viere">
-<meta property="article:tag" content="test">
+<meta property="article:tag" content="Deep Learning">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/v2-b50b34f6c48a49968de2d7b6de79b7e6_b.png">
   
-  <title>test - Hexo</title>
+  <title>解释激活函数之于神经网络 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -163,7 +172,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="test">
+            <span class="h2" id="subtitle" title="解释激活函数之于神经网络">
               
             </span>
 
@@ -173,8 +182,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-12-13 17:32" pubdate>
-        2021年12月13日 下午
+      <time datetime="2021-12-14 19:38" pubdate>
+        2021年12月14日 晚上
       </time>
     </span>
   
@@ -184,7 +193,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      46 字
+      590 字
     </span>
   
 
@@ -193,7 +202,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      2 分钟
     </span>
   
 
@@ -222,24 +231,32 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">test</h1>
+            <h1 style="display: none">解释激活函数之于神经网络</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 天前
+                  本文最后更新于：几秒前
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><h2 id="test-1"><a href="#test-1" class="headerlink" title="test"></a>test</h2><h3 id="test-2"><a href="#test-2" class="headerlink" title="test"></a>test</h3><p><strong>test</strong><br><em>test</em><br><del>test</del></p>
-<ul>
-<li>hexo1</li>
-<li>hexo2</li>
-</ul>
-<ol>
-<li>test</li>
-<li>test<br>test</li>
-</ol>
+              <h2 id="激活函数是什么"><a href="#激活函数是什么" class="headerlink" title="激活函数是什么"></a>激活函数是什么</h2><p>所谓激活函数（Activation Function），就是在人工神经网络的神经元上运行的函数，负责将神经元的输入映射到输出端。激活函数对于人工神经网络模型去学习、理解非常复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。如图，在神经元中，输入（inputs）通过加权，求和后，还被作用在一个函数上，这个函数就是激活函数。</p>
+<p><img src="/img/v2-b50b34f6c48a49968de2d7b6de79b7e6_b.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="为什么用激活函数"><a href="#为什么用激活函数" class="headerlink" title="为什么用激活函数"></a>为什么用激活函数</h2><p>激活函数给神经元引入了非线性因素，使得神经网络可以任意逼近任何非线性函数，应用到众多的非线性模型中，解决非线性问题。</p>
+<p>无激活函数的二分问题增加再多感知机（Perceptron）都只是矩阵相乘。因为其本质是在上层输入线型函数，输出线性组合，无非线性因素。将出现的问题如下图。</p>
+<p><img src="/img/%E7%BA%BF%E6%80%A7%E4%B8%8D%E5%8F%AF%E5%88%86.png" srcset="/img/loading.gif" lazyload></p>
+<p>加入阶跃函数后。阶跃函数即小于0不激活分到0，大于0被激活分到1（100%）。显然阶跃函数不是一个最好的选择，我们希望它可以是0%到100%里的任意值。值越大，激活程度越高。对于分类，也意味着它属于这一类的概率越大。</p>
+<p><img src="/img/%E5%8A%A0%E5%85%A5%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
+<p>加入Sigmoid函数后。加入非线性因素。</p>
+<p><img src="/img/%E5%8A%A0%E5%85%A5Sigmoid%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
+<p>其他常用激活函数Tanh，ReLU，Leaky，ReLU，PReLU，ELU，Maxout。因为每个激活函数都要考虑输入输出以及数据变化所以要谨慎选择。本文因为本人能力有限，不会对它们的区别作出解释。</p>
+<p><img src="/img/v2-17708ef17113fc120b045db3de3dbaac_b.jpg" srcset="/img/loading.gif" lazyload></p>
+<h2 id="利用GeoGebra模拟"><a href="#利用GeoGebra模拟" class="headerlink" title="利用GeoGebra模拟"></a>利用GeoGebra模拟</h2><p>无激活函数。</p>
+<p><img src="/img/%E6%97%A0%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
+<p>加入阶跃函数。</p>
+<p><img src="/img/%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
+<p>加入Sigmoid函数。</p>
+<p><img src="/img/Sigmoid%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
@@ -250,7 +267,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/test/">test</a>
+                      <a class="hover-with-bg" href="/tags/Deep-Learning/">Deep Learning</a>
                     
                   </div>
                 
@@ -261,18 +278,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/14/%E8%A7%A3%E9%87%8A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E4%B9%8B%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">解释激活函数之于神经网络</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/13/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2021/12/13/test/">
+                        <span class="hidden-mobile">test</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
