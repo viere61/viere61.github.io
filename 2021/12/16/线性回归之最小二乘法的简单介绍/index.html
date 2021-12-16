@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://aixingqiu-1258949597.cos.ap-beijing.myqcloud.com/2020-05-20-035618.png">
 <meta property="og:image" content="http://aixingqiu-1258949597.cos.ap-beijing.myqcloud.com/2020-05-20-035613.png">
 <meta property="article:published_time" content="2021-12-16T11:25:35.000Z">
-<meta property="article:modified_time" content="2021-12-16T16:25:16.830Z">
+<meta property="article:modified_time" content="2021-12-16T16:30:51.247Z">
 <meta property="article:author" content="Viere">
 <meta property="article:tag" content="Deep Learning">
 <meta name="twitter:card" content="summary_large_image">
@@ -249,7 +249,7 @@
 <p>$L\left(\hat{y}^\left(i\right),y^\left(i\right)\right)=\left(\hat{y}^\left(i\right)−y^\left(i\right)\right)^2$</p>
 <p>这里并非取$\left(\hat{y}−y^\left(i\right)\right)$的绝对值而是取平方一部分的原因是开平方后全程可导，且并不影响求误差目的本身。</p>
 <p>将数据集的所有误差求和取平均…</p>
-<p>$L(\hat{y},y)=$1/2m$\sum\limits_{i=1}^m\left(\hat{y}^\left(i\right)−y^\left(i\right)\right)^2$</p>
+<p>$L(\hat{y},y)=$1/2$m$$\sum\limits_{i=1}^m\left(\hat{y}^\left(i\right)−y^\left(i\right)\right)^2$</p>
 <p>取最小…</p>
 <p>$\min\sum\limits_{i=1}^m\left(\hat{y}^\left(i\right)−y^\left(i\right)\right)^2$</p>
 <p><em>到这一步，应该能明白：开平方即最小二乘法的“二乘”，取最小值，也就是当人脑判断和机器判断之间误差最小时，即“最小”。</em></p>
@@ -494,5 +494,21 @@
 <script  src="/js/boot.js" ></script>
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</script>
 </body>
 </html>
