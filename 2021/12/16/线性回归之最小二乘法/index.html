@@ -16,20 +16,23 @@
   <meta name="description" content="from Earth">
   <meta name="author" content="Viere">
   <meta name="keywords" content="">
-  <meta name="description" content="testtesttesttesttesttest  hexo1 hexo2   test testtest">
+  <meta name="description" content="最小二乘法的本质是均方误差的最小化。 给定数据集 $D &#x3D; \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)}, y^{(m)})$ ，数据集中有m个数据对。预测函数会根据输入特征x来计算输出值h(x)。其输入和输出的函数关系如下：  实质上它和我们中学时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://example.com/2021/12/13/test/index.html">
+<meta property="og:title" content="线性回归之最小二乘法">
+<meta property="og:url" content="http://example.com/2021/12/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B9%8B%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="testtesttesttesttesttest  hexo1 hexo2   test testtest">
+<meta property="og:description" content="最小二乘法的本质是均方误差的最小化。 给定数据集 $D &#x3D; \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)}, y^{(m)})$ ，数据集中有m个数据对。预测函数会根据输入特征x来计算输出值h(x)。其输入和输出的函数关系如下：  实质上它和我们中学时">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-12-13T09:32:36.000Z">
-<meta property="article:modified_time" content="2021-12-13T09:40:02.875Z">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=h_%7B%5Ctheta%7D(x)=%5Ctheta_0+++%5Ctheta_1+x+">
+<meta property="og:image" content="http://aixingqiu-1258949597.cos.ap-beijing.myqcloud.com/2020-05-20-035625.png">
+<meta property="article:published_time" content="2021-12-16T11:25:35.000Z">
+<meta property="article:modified_time" content="2021-12-16T13:53:03.458Z">
 <meta property="article:author" content="Viere">
-<meta property="article:tag" content="test">
+<meta property="article:tag" content="Deep Learning">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.zhihu.com/equation?tex=h_%7B%5Ctheta%7D(x)=%5Ctheta_0+++%5Ctheta_1+x+">
   
-  <title>test - Hexo</title>
+  <title>线性回归之最小二乘法 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -163,7 +166,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="test">
+            <span class="h2" id="subtitle" title="线性回归之最小二乘法">
               
             </span>
 
@@ -173,8 +176,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-12-13 17:32" pubdate>
-        2021年12月13日 下午
+      <time datetime="2021-12-16 19:25" pubdate>
+        2021年12月16日 晚上
       </time>
     </span>
   
@@ -184,7 +187,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      46 字
+      1.3k 字
     </span>
   
 
@@ -193,7 +196,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      4 分钟
     </span>
   
 
@@ -222,18 +225,33 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">test</h1>
+            <h1 style="display: none">线性回归之最小二乘法</h1>
             
             <div class="markdown-body">
-              <h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><h2 id="test-1"><a href="#test-1" class="headerlink" title="test"></a>test</h2><h3 id="test-2"><a href="#test-2" class="headerlink" title="test"></a>test</h3><p><strong>test</strong><br><em>test</em><br><del>test</del></p>
-<ul>
-<li>hexo1</li>
-<li>hexo2</li>
-</ul>
-<ol>
-<li>test</li>
-<li>test<br>test</li>
-</ol>
+              <p>最小二乘法的本质是均方误差的最小化。</p>
+<p>给定数据集 $D = \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)}, y^{(m)})$ ，数据集中有m个数据对。预测函数会根据输入特征x来计算输出值h(x)。其输入和输出的函数关系如下：</p>
+<p><img src="https://www.zhihu.com/equation?tex=h_%7B%5Ctheta%7D(x)=%5Ctheta_0+++%5Ctheta_1+x+" srcset="/img/loading.gif" lazyload alt="[公式]"></p>
+<p>实质上它和我们中学时解决数学问题时常用的$y=ax+b$方程并没有差别。方程描述了变量$y$随着变量 $x$而变化。方程从图形上来看，是一条直线。如果建立好这样的数学模型，已知$x$我们就可以得到预测的$\hat{y}$(y hat)了。统计学家给变量带上了一个小帽子，表示这是预测值，以区别于真实观测到的数据，即真实值$y$(Label)。</p>
+<p>方程只有一个自变量$x$，且不含平方立方等非一次项，因此被称为<strong>一元线性方程</strong>。</p>
+<p><img src="http://aixingqiu-1258949597.cos.ap-beijing.myqcloud.com/2020-05-20-035625.png" srcset="/img/loading.gif" lazyload></p>
+<p>图所示是解释房屋面积对于房价影响的散点图。</p>
+<p>以上是之于统计学的简单理解，以神经网络作为出发点，线性回归也是极其重要的知识点。</p>
+<p>打个比方。利用神经网络，AI判断图像是猫与否。在这儿，我们给输入层输入了多张人眼判断过是猫与否的图片（真实值y），经过神经网络隐藏层（中间层）的判断，再在输出层输出y hat作为结果。</p>
+<p>$y_i\in\left{0,1\right}$，即0和1代表着是不是猫和是猫。</p>
+<p>假设y hat的激活函数为Sigmoid函数，那，</p>
+<p>${\hat{y}_i}$ ~ $\left{0,1\right}$，靠近0代表着倾向不是猫，靠近1代表着倾向是猫。</p>
+<p>ps神经网络有参数w和b(bias)，但本文不讨论神经网络的参数体系。</p>
+<p>另一个极重要的概念是<strong>损失函数（Loss Function）</strong>。</p>
+<p>统计学家通常用$L(\hat{y},y)$表示损失函数，表示预测值和真实值之间的差异程度…</p>
+<p>$L\left(\hat{y}^\left(i\right),y^\left(i\right)\right)=\left(\hat{y}^\left(i\right)−y^\left(i\right)\right)^2$</p>
+<p>这里并非取$\left(\hat{y}−y^\left(i\right)\right)$的绝对值而是取平方一部分的原因是平方不影响求差异这个目的，以及平方后全程可导。</p>
+<p>将数据集的所有误差求和取平均…</p>
+<p>$L(\hat{y},y)=\frac{1}{m}\sum\limits_{i=1}^m\left(\hat{y}^\left(i\right)−y^\left(i\right)\right)^2$</p>
+<p>取最小…</p>
+<p>$\min\sum\limits_{i=1}^m\left(\hat{y}^\left(i\right)−y^\left(i\right)\right)^2$</p>
+<p>下面是Prof Andrew在Coursera给出的以最小二乘法来求损失函数的式子…</p>
+<p>$L(\hat{y},y)=\frac{1}{2}(\hat{y},y)^2$</p>
+<p>这里的1/2单纯为了求导方便。也没有连加符号，因为训练时是一张图片一张图片的。</p>
 
             </div>
             <hr>
@@ -244,7 +262,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/test/">test</a>
+                      <a class="hover-with-bg" href="/tags/Deep-Learning/">Deep Learning</a>
                     
                   </div>
                 
@@ -255,18 +273,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/14/%E8%A7%A3%E9%87%8A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E4%B9%8B%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">解释激活函数之于神经网络</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/13/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2021/12/14/%E8%A7%A3%E9%87%8A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E4%B9%8B%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                        <span class="hidden-mobile">解释激活函数之于神经网络</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

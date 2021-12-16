@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title>解释激活函数之于神经网络</title>
-    <link href="/2021/12/14/%E8%A7%A3%E9%87%8A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E4%B9%8B%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    <url>/2021/12/14/%E8%A7%A3%E9%87%8A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E4%B9%8B%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
+    <title>线性回归之最小二乘法</title>
+    <link href="/2021/12/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B9%8B%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/"/>
+    <url>/2021/12/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B9%8B%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/</url>
     
-    <content type="html"><![CDATA[<h2 id="激活函数是什么"><a href="#激活函数是什么" class="headerlink" title="激活函数是什么"></a>激活函数是什么</h2><p>所谓激活函数（Activation Function），就是在人工神经网络的神经元上运行的函数，负责将神经元的输入映射到输出端。激活函数对于人工神经网络模型去学习、理解非常复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。如图，在神经元中，输入（inputs）通过加权，求和后，还被作用在一个函数上，这个函数就是激活函数。</p><p><img src="/img/v2-b50b34f6c48a49968de2d7b6de79b7e6_b.png"></p><h2 id="为什么用激活函数"><a href="#为什么用激活函数" class="headerlink" title="为什么用激活函数"></a>为什么用激活函数</h2><p>激活函数给神经元引入了非线性因素，使得神经网络可以任意逼近任何非线性函数，应用到众多的非线性模型中，解决非线性问题。</p><p>无激活函数的二分问题增加再多感知机（Perceptron）都只是矩阵相乘。因为其本质是在上层输入线型函数，输出线性组合，无非线性因素。将面临的问题以下图为例。</p><p><img src="/img/%E7%BA%BF%E6%80%A7%E4%B8%8D%E5%8F%AF%E5%88%86.png"></p><p>加入阶跃函数后，如下图。阶跃函数即小于0不激活分到0，大于0被激活分到1（100%）。在机器学习的划分时，它意味着划分的边界。</p><p><img src="/img/%E5%8A%A0%E5%85%A5%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png"></p><p>显然阶跃函数不是神经网络中一个完美的选择，我们希望它可以是0%到100%里的任意值。值越大，激活程度越高。对于分类，也意味着它属于这一类的概率越大。其中一个选择是加入Sigmoid函数作为激活函数。</p><p><img src="https://gblobscdn.gitbook.com/assets%2F-LAHBpdrwoD-M1bqEq-u%2F-LJhU4NN2a_jPOdMmwT0%2F-LJhU6EDYTuuYCHiJR48%2Factivation-function.png?alt=media"></p><p>加入Sigmoid函数后。加入非线性因素。</p><p><img src="/img/%E5%8A%A0%E5%85%A5Sigmoid%E5%87%BD%E6%95%B0.png"></p><p>其他常用激活函数有Tanh，ReLU，Leaky，ReLU，PReLU，ELU，Maxout。因为每个激活函数都要考虑输入输出以及数据变化所以要谨慎选择。因为本人能力有限，本文不会对它们的区别作出解释。</p><p><img src="/img/v2-17708ef17113fc120b045db3de3dbaac_b.jpg"></p><h2 id="利用GeoGebra模拟"><a href="#利用GeoGebra模拟" class="headerlink" title="利用GeoGebra模拟"></a>利用GeoGebra模拟</h2><p>无激活函数。</p><p><img src="/img/%E6%97%A0%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png"></p><p>加入阶跃函数。</p><p><img src="/img/%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png"></p><p>加入Sigmoid函数。</p><p><img src="/img/Sigmoid%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>最小二乘法的本质是均方误差的最小化。</p><p>给定数据集 $D = \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)}, y^{(m)})$ ，数据集中有m个数据对。预测函数会根据输入特征x来计算输出值h(x)。其输入和输出的函数关系如下：</p><p><img src="https://www.zhihu.com/equation?tex=h_%7B%5Ctheta%7D(x)=%5Ctheta_0+++%5Ctheta_1+x+" alt="[公式]"></p><p>实质上它和我们中学时解决数学问题时常用的$y=ax+b$方程并没有差别。方程描述了变量$y$随着变量 $x$而变化。方程从图形上来看，是一条直线。如果建立好这样的数学模型，已知$x$我们就可以得到预测的$\hat{y}$(y hat)了。统计学家给变量带上了一个小帽子，表示这是预测值，以区别于真实观测到的数据，即真实值$y$(Label)。</p><p>方程只有一个自变量$x$，且不含平方立方等非一次项，因此被称为<strong>一元线性方程</strong>。</p><p><img src="http://aixingqiu-1258949597.cos.ap-beijing.myqcloud.com/2020-05-20-035625.png"></p><p>图所示是解释房屋面积对于房价影响的散点图。</p><p>以上是之于统计学的简单理解，以神经网络作为出发点，线性回归也是极其重要的知识点。</p><p>打个比方。利用神经网络，AI判断图像是猫与否。在这儿，我们给输入层输入了多张人眼判断过是猫与否的图片（真实值y），经过神经网络隐藏层（中间层）的判断，再在输出层输出y hat作为结果。</p><p>$y_i\in\left{0,1\right}$，即0和1代表着是不是猫和是猫。</p><p>假设y hat的激活函数为Sigmoid函数，那，</p><p>${\hat{y}_i}$ ~ $\left{0,1\right}$，靠近0代表着倾向不是猫，靠近1代表着倾向是猫。</p><p>ps神经网络有参数w和b(bias)，但本文不讨论神经网络的参数体系。</p><p>另一个极重要的概念是<strong>损失函数（Loss Function）</strong>。</p><p>统计学家通常用$L(\hat{y},y)$表示损失函数，表示预测值和真实值之间的差异程度…</p><p>$L\left(\hat{y}^\left(i\right),y^\left(i\right)\right)=\left(\hat{y}^\left(i\right)−y^\left(i\right)\right)^2$</p><p>这里并非取$\left(\hat{y}−y^\left(i\right)\right)$的绝对值而是取平方一部分的原因是平方不影响求差异这个目的，以及平方后全程可导。</p><p>将数据集的所有误差求和取平均…</p><p>$L(\hat{y},y)=\frac{1}{m}\sum\limits_{i=1}^m\left(\hat{y}^\left(i\right)−y^\left(i\right)\right)^2$</p><p>取最小…</p><p>$\min\sum\limits_{i=1}^m\left(\hat{y}^\left(i\right)−y^\left(i\right)\right)^2$</p><p>下面是Prof Andrew在Coursera给出的以最小二乘法来求损失函数的式子…</p><p>$L(\hat{y},y)=\frac{1}{2}(\hat{y},y)^2$</p><p>这里的1/2单纯为了求导方便。也没有连加符号，因为训练时是一张图片一张图片的。</p>]]></content>
     
     
     
@@ -23,17 +23,17 @@
   
   
   <entry>
-    <title>test</title>
-    <link href="/2021/12/13/test/"/>
-    <url>/2021/12/13/test/</url>
+    <title>解释激活函数之于神经网络</title>
+    <link href="/2021/12/14/%E8%A7%A3%E9%87%8A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E4%B9%8B%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <url>/2021/12/14/%E8%A7%A3%E9%87%8A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E4%B9%8B%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
     
-    <content type="html"><![CDATA[<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><h2 id="test-1"><a href="#test-1" class="headerlink" title="test"></a>test</h2><h3 id="test-2"><a href="#test-2" class="headerlink" title="test"></a>test</h3><p><strong>test</strong><br><em>test</em><br><del>test</del></p><ul><li>hexo1</li><li>hexo2</li></ul><ol><li>test</li><li>test<br>test</li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="激活函数是什么"><a href="#激活函数是什么" class="headerlink" title="激活函数是什么"></a>激活函数是什么</h2><p>所谓激活函数（Activation Function），就是在人工神经网络的神经元上运行的函数，负责将神经元的输入映射到输出端。激活函数对于人工神经网络模型去学习、理解非常复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。如图，在神经元中，输入（inputs）通过加权，求和后，还被作用在一个函数上，这个函数就是激活函数。</p><p><img src="/img/v2-b50b34f6c48a49968de2d7b6de79b7e6_b.png"></p><h2 id="为什么用激活函数"><a href="#为什么用激活函数" class="headerlink" title="为什么用激活函数"></a>为什么用激活函数</h2><p>激活函数给神经元引入了非线性因素，使得神经网络可以任意逼近任何非线性函数，应用到众多的非线性模型中，解决非线性问题。</p><p>无激活函数的二分问题增加再多感知机（Perceptron）都只是矩阵相乘。因为其本质是在上层输入线型函数，输出线性组合，无非线性因素。将面临的问题以下图为例。</p><p><img src="/img/%E7%BA%BF%E6%80%A7%E4%B8%8D%E5%8F%AF%E5%88%86.png"></p><p>加入阶跃函数后，如下图。阶跃函数即小于0不激活分到0，大于0被激活分到1（100%）。在机器学习的划分时，它意味着划分的边界。</p><p><img src="/img/%E5%8A%A0%E5%85%A5%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png"></p><p>显然阶跃函数不是神经网络中一个完美的选择，我们希望它可以是0%到100%里的任意值。值越大，激活程度越高。对于分类，也意味着它属于这一类的概率越大。其中一个选择是加入Sigmoid函数作为激活函数。</p><p><img src="https://gblobscdn.gitbook.com/assets%2F-LAHBpdrwoD-M1bqEq-u%2F-LJhU4NN2a_jPOdMmwT0%2F-LJhU6EDYTuuYCHiJR48%2Factivation-function.png?alt=media"></p><p>加入Sigmoid函数后。加入非线性因素。</p><p><img src="/img/%E5%8A%A0%E5%85%A5Sigmoid%E5%87%BD%E6%95%B0.png"></p><p>其他常用激活函数有Tanh，ReLU，Leaky，ReLU，PReLU，ELU，Maxout。因为每个激活函数都要考虑输入输出以及数据变化所以要谨慎选择。因为本人能力有限，本文不会对它们的区别作出解释。</p><p><img src="/img/v2-17708ef17113fc120b045db3de3dbaac_b.jpg"></p><h2 id="利用GeoGebra模拟"><a href="#利用GeoGebra模拟" class="headerlink" title="利用GeoGebra模拟"></a>利用GeoGebra模拟</h2><p>无激活函数。</p><p><img src="/img/%E6%97%A0%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png"></p><p>加入阶跃函数。</p><p><img src="/img/%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png"></p><p>加入Sigmoid函数。</p><p><img src="/img/Sigmoid%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png"></p>]]></content>
     
     
     
     <tags>
       
-      <tag>test</tag>
+      <tag>Deep Learning</tag>
       
     </tags>
     
