@@ -16,24 +16,24 @@
   <meta name="description" content="from Earth">
   <meta name="author" content="Viere">
   <meta name="keywords" content="">
-  <meta name="description" content="给定数据集 $D &#x3D; \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)}, y^{(m)})\rbrace$ ，数据集中有m个数据对。预测函数会根据输入特征x来计算输出值h(x)。其输入和输出的函数关系如下： $h_\theta&#x3D;\theta_0+\the">
+  <meta name="description" content="最小二乘是很多东西的核心 比如 $x &#x3D; 5,6,7, y &#x3D; 10,18,28$， 如果x&#x3D;10，$y$是多少 这种就是用最小二乘来建模 求出这个背后的规律 $y&#x3D;x^2-3x$ 给定数据集 $D &#x3D; \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)},">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线性回归之最小二乘法的简单介绍">
-<meta property="og:url" content="http://example.com/2021/12/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B9%8B%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:title" content="线性回归，最小二乘法，损失函数的杂乱介绍">
+<meta property="og:url" content="http://example.com/2021/12/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%EF%BC%8C%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%EF%BC%8C%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E7%9A%84%E6%9D%82%E4%B9%B1%E4%BB%8B%E7%BB%8D/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="给定数据集 $D &#x3D; \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)}, y^{(m)})\rbrace$ ，数据集中有m个数据对。预测函数会根据输入特征x来计算输出值h(x)。其输入和输出的函数关系如下： $h_\theta&#x3D;\theta_0+\the">
+<meta property="og:description" content="最小二乘是很多东西的核心 比如 $x &#x3D; 5,6,7, y &#x3D; 10,18,28$， 如果x&#x3D;10，$y$是多少 这种就是用最小二乘来建模 求出这个背后的规律 $y&#x3D;x^2-3x$ 给定数据集 $D &#x3D; \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)},">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://aixingqiu-1258949597.cos.ap-beijing.myqcloud.com/2020-05-20-035625.png">
 <meta property="og:image" content="http://aixingqiu-1258949597.cos.ap-beijing.myqcloud.com/2020-05-20-035618.png">
 <meta property="og:image" content="http://aixingqiu-1258949597.cos.ap-beijing.myqcloud.com/2020-05-20-035613.png">
 <meta property="article:published_time" content="2021-12-16T11:25:35.000Z">
-<meta property="article:modified_time" content="2022-02-22T02:37:54.023Z">
+<meta property="article:modified_time" content="2022-03-09T12:38:42.611Z">
 <meta property="article:author" content="Viere">
 <meta property="article:tag" content="Deep Learning">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://aixingqiu-1258949597.cos.ap-beijing.myqcloud.com/2020-05-20-035625.png">
   
-  <title>线性回归之最小二乘法的简单介绍 - Hexo</title>
+  <title>线性回归，最小二乘法，损失函数的杂乱介绍 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -167,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="线性回归之最小二乘法的简单介绍">
+            <span class="h2" id="subtitle" title="线性回归，最小二乘法，损失函数的杂乱介绍">
               
             </span>
 
@@ -188,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      1.7k 字
     </span>
   
 
@@ -226,10 +226,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">线性回归之最小二乘法的简单介绍</h1>
+            <h1 style="display: none">线性回归，最小二乘法，损失函数的杂乱介绍</h1>
             
             <div class="markdown-body">
-              <p>给定数据集 $D = \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)}, y^{(m)})\rbrace$ ，数据集中有m个数据对。预测函数会根据输入特征x来计算输出值h(x)。其输入和输出的函数关系如下：</p>
+              <p>最小二乘是很多东西的核心 比如 $x = 5,6,7, y = 10,18,28$， 如果<script type="math/tex">x=10</script>，$y$是多少 这种就是用最小二乘来建模 求出这个背后的规律 $y=x^2-3x$</p>
+<p>给定数据集 $D = \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)}, y^{(m)})\rbrace$ ，数据集中有m个数据对。预测函数会根据输入特征x来计算输出值h(x)。其输入和输出的函数关系如下：</p>
 <p>$h_\theta=\theta_0+\theta_1x$</p>
 <p>实质上它和我们中学时解决数学问题时常用的$y=ax+b$方程并没有差别。方程描述了变量$y$随着变量$x$而变化。方程从图形上来看，是一条直线。如果建立好这样的数学模型，已知$x$我们就可以得到预测的$\hat{y}$(y hat)了。统计学家给变量带上了一个小帽子，表示这是预测值，以区别于真实观测到的数据，即真实值$y$(Label)。</p>
 <p>方程只有一个自变量$x$，且不含平方立方等非一次项，因此被称为<strong>一元线性方程</strong>。</p>
@@ -255,7 +256,7 @@
 <p><em>到这一步，应该能明白：开平方即最小二乘法的“二乘”，取最小值，也就是当人脑判断和机器判断之间误差最小时，即“最小”。最小二乘法的本质是均方误差的最小化。</em></p>
 <p>下面是Prof Andrew在Coursera课程ML中给出的以最小二乘法来求损失函数的式子…</p>
 <p><script type="math/tex">L(\hat{y},y)=</script>1/2$(\hat{y},y)^2$</p>
-<p>上面公式的1/2单纯为了求导方便。这个公式没有连加符号，因为图片是一张一张训练的。</p>
+<p>上面公式出现的1/2单纯为了求导方便。这个公式没有连加符号，因为图片是一张一张训练的。</p>
 <p><img src="http://aixingqiu-1258949597.cos.ap-beijing.myqcloud.com/2020-05-20-035618.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><em>假设直线如图，误差的方差和相对大</em></p>
 <p><img src="http://aixingqiu-1258949597.cos.ap-beijing.myqcloud.com/2020-05-20-035613.png" srcset="/img/loading.gif" lazyload alt=""></p>
@@ -280,6 +281,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/03/09/%E5%9F%BA%E7%A1%80%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%EF%BC%88%E5%B0%9A%E6%9C%AA%E6%9B%B4%E6%96%B0%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86%EF%BC%89%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%BA%94%E5%A4%A7%E5%88%86%E7%B1%BB/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">基础反向传播（尚未更新数学原理）和机器学习五大分类</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

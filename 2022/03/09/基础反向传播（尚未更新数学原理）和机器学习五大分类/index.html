@@ -16,30 +16,24 @@
   <meta name="description" content="from Earth">
   <meta name="author" content="Viere">
   <meta name="keywords" content="">
-  <meta name="description" content="激活函数是什么所谓激活函数（Activation Function），就是在人工神经网络的神经元上运行的函数，负责将神经元的输入映射到输出端。激活函数对于人工神经网络模型去学习、理解非常复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。如图，在神经元中，输入（inputs）通过加权，求和后，还被作用在一个函数上，这个函数就是激活函数。  为什么用激活函数激活函数给神经元">
+  <meta name="description" content="反向传播反向传播（英文Backpropagation，缩写BP）是“误差反向传播”的简称，是一种与最优化方法（如梯度下降法）结合使用的，用来训练人工神经网络的常见方法。该方法对网络中所有权重计算损失函数的梯度。这个梯度会回馈给最佳化方法，用来更新权值以最小化损失函数。 反向传播要求有对每个输入值想得到的已知输出，来计算损失函数梯度。因此，它通常被认为是一种监督式学习方法。 我们可以将梯度下降法理解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解释激活函数之于神经网络">
-<meta property="og:url" content="http://example.com/2021/12/14/%E8%A7%A3%E9%87%8A%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E4%B9%8B%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:title" content="基础反向传播（尚未更新数学原理）和机器学习五大分类">
+<meta property="og:url" content="http://example.com/2022/03/09/%E5%9F%BA%E7%A1%80%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%EF%BC%88%E5%B0%9A%E6%9C%AA%E6%9B%B4%E6%96%B0%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86%EF%BC%89%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%BA%94%E5%A4%A7%E5%88%86%E7%B1%BB/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="激活函数是什么所谓激活函数（Activation Function），就是在人工神经网络的神经元上运行的函数，负责将神经元的输入映射到输出端。激活函数对于人工神经网络模型去学习、理解非常复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。如图，在神经元中，输入（inputs）通过加权，求和后，还被作用在一个函数上，这个函数就是激活函数。  为什么用激活函数激活函数给神经元">
+<meta property="og:description" content="反向传播反向传播（英文Backpropagation，缩写BP）是“误差反向传播”的简称，是一种与最优化方法（如梯度下降法）结合使用的，用来训练人工神经网络的常见方法。该方法对网络中所有权重计算损失函数的梯度。这个梯度会回馈给最佳化方法，用来更新权值以最小化损失函数。 反向传播要求有对每个输入值想得到的已知输出，来计算损失函数梯度。因此，它通常被认为是一种监督式学习方法。 我们可以将梯度下降法理解">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/v2-b50b34f6c48a49968de2d7b6de79b7e6_b.png">
-<meta property="og:image" content="http://example.com/img/%E7%BA%BF%E6%80%A7%E4%B8%8D%E5%8F%AF%E5%88%86.png">
-<meta property="og:image" content="http://example.com/img/%E5%8A%A0%E5%85%A5%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png">
-<meta property="og:image" content="https://gblobscdn.gitbook.com/assets%2F-LAHBpdrwoD-M1bqEq-u%2F-LJhU4NN2a_jPOdMmwT0%2F-LJhU6EDYTuuYCHiJR48%2Factivation-function.png?alt=media">
-<meta property="og:image" content="http://example.com/img/%E5%8A%A0%E5%85%A5Sigmoid%E5%87%BD%E6%95%B0.png">
-<meta property="og:image" content="http://example.com/img/v2-17708ef17113fc120b045db3de3dbaac_b.jpg">
-<meta property="og:image" content="http://example.com/img/%E6%97%A0%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png">
-<meta property="og:image" content="http://example.com/img/%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png">
-<meta property="og:image" content="http://example.com/img/Sigmoid%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png">
-<meta property="article:published_time" content="2021-12-14T11:38:53.000Z">
-<meta property="article:modified_time" content="2021-12-15T06:35:42.388Z">
+<meta property="og:image" content="http://example.com/Users/felix/viere/themes/fluid/source/img/20220309blog1.png">
+<meta property="og:image" content="http://example.com/Users/felix/viere/themes/fluid/source/img/20220309blog2.png">
+<meta property="og:image" content="http://example.com/Users/felix/viere/themes/fluid/source/img/20220309blog3.png">
+<meta property="article:published_time" content="2022-03-09T11:34:55.000Z">
+<meta property="article:modified_time" content="2022-03-09T12:51:47.374Z">
 <meta property="article:author" content="Viere">
 <meta property="article:tag" content="Deep Learning">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/v2-b50b34f6c48a49968de2d7b6de79b7e6_b.png">
+<meta name="twitter:image" content="http://example.com/Users/felix/viere/themes/fluid/source/img/20220309blog1.png">
   
-  <title>解释激活函数之于神经网络 - Hexo</title>
+  <title>基础反向传播（尚未更新数学原理）和机器学习五大分类 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -173,7 +167,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="解释激活函数之于神经网络">
+            <span class="h2" id="subtitle" title="基础反向传播（尚未更新数学原理）和机器学习五大分类">
               
             </span>
 
@@ -183,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-12-14 19:38" pubdate>
-        2021年12月14日 晚上
+      <time datetime="2022-03-09 19:34" pubdate>
+        2022年3月9日 晚上
       </time>
     </span>
   
@@ -194,7 +188,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      647 字
+      857 字
     </span>
   
 
@@ -203,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      3 分钟
     </span>
   
 
@@ -232,28 +226,36 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">解释激活函数之于神经网络</h1>
+            <h1 style="display: none">基础反向传播（尚未更新数学原理）和机器学习五大分类</h1>
             
             <div class="markdown-body">
-              <h2 id="激活函数是什么"><a href="#激活函数是什么" class="headerlink" title="激活函数是什么"></a>激活函数是什么</h2><p>所谓激活函数（Activation Function），就是在人工神经网络的神经元上运行的函数，负责将神经元的输入映射到输出端。激活函数对于人工神经网络模型去学习、理解非常复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。如图，在神经元中，输入（inputs）通过加权，求和后，还被作用在一个函数上，这个函数就是激活函数。</p>
-<p><img src="/img/v2-b50b34f6c48a49968de2d7b6de79b7e6_b.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="为什么用激活函数"><a href="#为什么用激活函数" class="headerlink" title="为什么用激活函数"></a>为什么用激活函数</h2><p>激活函数给神经元引入了非线性因素，使得神经网络可以任意逼近任何非线性函数，应用到众多的非线性模型中，解决非线性问题。</p>
-<p>无激活函数的二分问题增加再多感知机（Perceptron）都只是矩阵相乘。因为其本质是在上层输入线型函数，输出线性组合，无非线性因素。将面临的问题以下图为例。</p>
-<p><img src="/img/%E7%BA%BF%E6%80%A7%E4%B8%8D%E5%8F%AF%E5%88%86.png" srcset="/img/loading.gif" lazyload></p>
-<p>加入阶跃函数后，如下图。阶跃函数即小于0不激活分到0，大于0被激活分到1（100%）。在机器学习的划分时，它意味着划分的边界。</p>
-<p><img src="/img/%E5%8A%A0%E5%85%A5%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
-<p>显然阶跃函数不是神经网络中一个完美的选择，我们希望它可以是0%到100%里的任意值。值越大，激活程度越高。对于分类，也意味着它属于这一类的概率越大。其中一个选择是加入Sigmoid函数作为激活函数。</p>
-<p><img src="https://gblobscdn.gitbook.com/assets%2F-LAHBpdrwoD-M1bqEq-u%2F-LJhU4NN2a_jPOdMmwT0%2F-LJhU6EDYTuuYCHiJR48%2Factivation-function.png?alt=media" srcset="/img/loading.gif" lazyload></p>
-<p>加入Sigmoid函数后。加入非线性因素。</p>
-<p><img src="/img/%E5%8A%A0%E5%85%A5Sigmoid%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
-<p>其他常用激活函数有Tanh，ReLU，Leaky，ReLU，PReLU，ELU，Maxout。因为每个激活函数都要考虑输入输出以及数据变化所以要谨慎选择。因为本人能力有限，本文不会对它们的区别作出解释。</p>
-<p><img src="/img/v2-17708ef17113fc120b045db3de3dbaac_b.jpg" srcset="/img/loading.gif" lazyload></p>
-<h2 id="利用GeoGebra模拟"><a href="#利用GeoGebra模拟" class="headerlink" title="利用GeoGebra模拟"></a>利用GeoGebra模拟</h2><p>无激活函数。</p>
-<p><img src="/img/%E6%97%A0%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
-<p>加入阶跃函数。</p>
-<p><img src="/img/%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
-<p>加入Sigmoid函数。</p>
-<p><img src="/img/Sigmoid%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.png" srcset="/img/loading.gif" lazyload></p>
+              <h2 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h2><p><strong>反向传播</strong>（英文Backpropagation，缩写BP）是“误差反向传播”的简称，是一种与最优化方法（如梯度下降法）结合使用的，用来训练人工神经网络的常见方法。该方法对网络中所有权重计算损失函数的梯度。这个梯度会回馈给最佳化方法，用来更新权值以最小化损失函数。</p>
+<p>反向传播要求有对每个输入值想得到的已知输出，来计算损失函数梯度。因此，它通常被认为是一种监督式学习方法。</p>
+<p>我们可以将梯度下降法理解成general的优化算法，而反向传播则是其在神经网络上的具体实现方式。</p>
+<p>我们的目标是，计算代价函数对于权重微小变化的敏感程度，</p>
+<p>即，求代价函数对权重的导数。</p>
+<p>即，改变权重对代价函数的值造成的变化。</p>
+<p>这样我们就知道，如何调整w和b变量才可以使得代价函数下降最快。</p>
+<p>拿单个样本中最后两个神经元来看，</p>
+<p>代价函数之于一个样本是：</p>
+<p>（预测值-最后一层神经元实际激活值）**2</p>
+<p>最后一层神经元实际激活值 = 激活函数<em> （最后一层的权重</em>倒数第二层的激活值+最后一层的偏置）</p>
+<p><img src="/Users/felix/viere/themes/fluid/source/img/20220309blog1.png" srcset="/img/loading.gif" lazyload alt="" style="zoom:20%;" /></p>
+<p><img src="/Users/felix/viere/themes/fluid/source/img/20220309blog2.png" srcset="/img/loading.gif" lazyload style="zoom:20%;" /></p>
+<p>倒数第二层的激活值 = 倒数第二层的权重*倒数第三层的激活值+倒数第二层的偏置</p>
+<p><img src="/Users/felix/viere/themes/fluid/source/img/20220309blog3.png" srcset="/img/loading.gif" lazyload style="zoom:20%;" /></p>
+<p>只有最后一层有激活函数</p>
+<p>以此类推。</p>
+<h2 id="机器学习五大分类"><a href="#机器学习五大分类" class="headerlink" title="机器学习五大分类"></a>机器学习五大分类</h2><p><strong>监督学习：</strong></p>
+<p>从给定的训练集中学习一个函数，当新数据到来时，可以根据这个函数来预测结果。监督学习的训练集要求有输入和输出，也称之为特征和目标。从输入数据提取数据特征，以达到输出特定目标的目的。训练集的目标是由人标注的，常见的监督学习算法包括回归和分类</p>
+<p><strong>无监督学习：</strong></p>
+<p>无监督学习与监督学习相比，训练集没有人为标注的结果（有些数据难以人工标注分类或标注分类成本太高）。无监督学习的典型学习算法是聚类（将相似的东西聚在一起，而不关心这一类是什么）。</p>
+<p><strong>半监督学习：</strong></p>
+<p>半监督学习是一种基于监督学习和无监督学习之间的方法。半监督学习使用大量的未标记数据，以及同时使用标记数据，来进行模式识别工作。</p>
+<p><strong>迁移学习：</strong></p>
+<p>将在一个模型中已经训练好的模型参数迁移到新的模型继续训练学习的学习方法。</p>
+<p><strong>增强学习：</strong></p>
+<p>通过观察周围环境来学习。每个动作都会对环境有所影响，学习对象根据观察周围环境的反馈来做出判断。</p>
 
             </div>
             <hr>
@@ -275,18 +277,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%EF%BC%8C%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%EF%BC%8C%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E7%9A%84%E6%9D%82%E4%B9%B1%E4%BB%8B%E7%BB%8D/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">线性回归，最小二乘法，损失函数的杂乱介绍</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/13/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2021/12/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%EF%BC%8C%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%EF%BC%8C%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E7%9A%84%E6%9D%82%E4%B9%B1%E4%BB%8B%E7%BB%8D/">
+                        <span class="hidden-mobile">线性回归，最小二乘法，损失函数的杂乱介绍</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

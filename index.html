@@ -180,19 +180,64 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/12/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B9%8B%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" target="_self">
-          线性回归之最小二乘法的简单介绍
+        <a href="/2022/03/09/%E5%9F%BA%E7%A1%80%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%EF%BC%88%E5%B0%9A%E6%9C%AA%E6%9B%B4%E6%96%B0%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86%EF%BC%89%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%BA%94%E5%A4%A7%E5%88%86%E7%B1%BB/" target="_self">
+          基础反向传播（尚未更新数学原理）和机器学习五大分类
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/12/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B9%8B%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" target="_self">
+        <a href="/2022/03/09/%E5%9F%BA%E7%A1%80%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%EF%BC%88%E5%B0%9A%E6%9C%AA%E6%9B%B4%E6%96%B0%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86%EF%BC%89%E5%92%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%BA%94%E5%A4%A7%E5%88%86%E7%B1%BB/" target="_self">
           
           
             
           
-          给定数据集 $D = \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)}, y^{(m)})\rbrace$ ，数据集中有m个数据对。预测函数会根据输入特征x来计算输出值h(x)。其输入和输出的函数关系如下：
-$h_\theta=\theta_0+\the
+          反向传播反向传播（英文Backpropagation，缩写BP）是“误差反向传播”的简称，是一种与最优化方法（如梯度下降法）结合使用的，用来训练人工神经网络的常见方法。该方法对网络中所有权重计算损失函数的梯度。这个梯度会回馈给最佳化方法，用来更新权值以最小化损失函数。
+反向传播要求有对每个输入值想得到的已知输出，来计算损失函数梯度。因此，它通常被认为是一种监督式学习方法。
+我们可以将梯度下降法理解
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-09 19:34" pubdate>
+              2022-03-09
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Deep-Learning/">Deep Learning</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/12/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%EF%BC%8C%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%EF%BC%8C%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E7%9A%84%E6%9D%82%E4%B9%B1%E4%BB%8B%E7%BB%8D/" target="_self">
+          线性回归，最小二乘法，损失函数的杂乱介绍
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/12/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%EF%BC%8C%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%EF%BC%8C%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E7%9A%84%E6%9D%82%E4%B9%B1%E4%BB%8B%E7%BB%8D/" target="_self">
+          
+          
+            
+          
+          最小二乘是很多东西的核心 比如 $x = 5,6,7, y = 10,18,28$， 如果x=10，$y$是多少 这种就是用最小二乘来建模 求出这个背后的规律 $y=x^2-3x$
+给定数据集 $D = \lbrace(\boldsymbol{x}^{(1)}, y^{(1)}), (\boldsymbol{x}^{(2)}, y^{(2)}), … ,(\boldsymbol{x}^{(m)},
         </a>
       </p>
 
